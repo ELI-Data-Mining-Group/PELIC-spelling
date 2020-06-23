@@ -34,12 +34,16 @@ The [PELIC-spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling) re
 
 File        | File type | Description  
 :---        | :--- | :---
-[actually_ok](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/actually_ok) | txt | short list of words manually approved as being legitimate words
+[contractions](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt) | txt | short list of contractions approved as legitimate tokens (not misspellings)
+[frequency_bigramdictionary_en_243_342](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_bigramdictionary_en_243_342.txt) | txt | bigram frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
 [frequency_dictionary_en_82_765](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_dictionary_en_82_765.txt) | txt | frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
+[hyphens](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) | txt | list of hyphenated words which appear in PELIC and have been approved as legitimate tokens (not misspellings)
 [PELIC_compiled_spellcorrected](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_compiled_spellcorrected.csv) | csv | final output of updated `PELIC_compiled.csv` with spelling correction
 [PELIC_spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling.ipynb) | ipynb | notebook demonstrating how spelling correction is applied to PELIC texts
+[PELIC-SCOWL](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC-SCOWL.txt) | txt | a combination of the [SCOWL_condensed](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt), [contractions](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt), and [hyphens](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) lists
 [README](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/README.md) | md | this file describing the repository
 [SCOWL_condensed](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt) | txt | final compiled word list based on SCOWL word lists
+[SCOWL_supp](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/actually_ok) | txt | short list of words manually approved as being legitimate words, e.g. proper names not found in SCOWL
 [SCOWL_wordlist](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.ipynb) | ipynb | notebook demonstrating how the SCOWL_condensed word list is created
 [SCOWL_wordlist](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.txt) | txt | the full SCOWL wordlist before condensing
 
@@ -80,29 +84,30 @@ The notebook is divided into four main sections:
 >>> misspell_df.sample(5)
 ```
 
-|      | misspelling   | lemma      | POS   | tok_lem_POS                        |   freq |
-|-----:|:--------------|:-----------|:------|:-----------------------------------|-------:|
-| 9164 | spel          | spel       | VB    | ('spel', 'spel', 'VB')             |      1 |
-| 5495 | invesigate    | invesigate | VB    | ('invesigate', 'invesigate', 'VB') |      1 |
-| 3645 | estmatied     | estmatied  | JJ    | ('estmatied', 'estmatied', 'JJ')   |      1 |
-| 9313 | straigten     | straigten  | VB    | ('straigten', 'straigten', 'VB')   |      1 |
-| 8455 | saayed        | saayed     | VBD   | ('saayed', 'saayed', 'VBD')        |      1 |
+| Index| misspelling   | tok_lem_POS                        |   freq |
+|-----:|:--------------|:-----------------------------------|-------:|
+| 9164 | spel          | ('spel', 'spel', 'VB')             |      1 |
+| 5495 | invesigate    | ('invesigate', 'invesigate', 'VB') |      1 |
+| 3645 | estmatied     | ('estmatied', 'estmatied', 'JJ')   |      1 |
+| 9313 | straigten     | ('straigten', 'straigten', 'VB')   |      1 |
+| 8455 | hobbys        | ('hobbys', 'hobbys', 'NN')         |      2 |
 
-- _Applying spelling correction_ : Having collected and organized the misspellings, we then correct these occurrences using [`SymSpell`](https://github.com/mammothb/symspellpy). In SymSpell sentence context is not considered, only general frequencies. Though this is not ideal, other well-known spellcheckers (hunspell, pyspell, etc.) use the same strategy - frequency based criteria for suggestions, without considering immediate co-text/context. As such, it is important to remember that accuracy of corrected tokens will not be 100% and must be taken into consideration.
+- _Applying spelling correction_ : Having collected and organized the misspellings, we then correct these occurrences using [`SymSpell`](https://github.com/mammothb/symspellpy). In SymSpell complete sentence context is not considered, only bigrams and frequencies. Though this is not ideal, other well-known spellcheckers (hunspell, pyspell, etc.) use the same strategy - frequency based criteria for suggestions, without considering co-text beyond bigrams. As such, it is important to remember that accuracy of corrected tokens will not be 100% and must be taken into consideration.
 
 ```python
->>> misspell_df.sample(5)
+>>> print(non_words2[['answer_id','misspelling','sentence','final_correction_POS']].sample(5))
+# Sample of 5 rows and key columns
 ```
 
-|       | misspelling   | lemma      | POS   | tok_lem_POS                        |   freq | suggestions                                                                                                                                                                                                                                                                                                              | correction   | correction_POS       |
-|------:|:--------------|:-----------|:------|:-----------------------------------|-------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|:---------------------|
-|  5668 | kamote        | kamote     | VB    | ('kamote', 'kamote', 'VB')         |      1 | [['remote', ' 2', ' 50683428'], ['kate', ' 2', ' 13076275'], | remote       | ('remote', 'VB')     |
-|  8000 | reasturant    | reasturant | NN    | ('reasturant', 'reasturant', 'NN') |      1 | [['restaurant', ' 2', ' 48255033']]                                                                                                                                                                                                                                                                                      | restaurant   | ('restaurant', 'NN') |
-| 10917 | writier       | writier    | NN    | ('writier', 'writier', 'NN')       |      1 | [['writer', ' 1', ' 29320566']]                                                                                                                                                                                                                                                                                          | writer       | ('writer', 'NN')     |
-|  4828 | hearcher      | hearcher   | NN    | ('hearcher', 'hearcher', 'NN')     |      1 | [['searcher', ' 1', ' 757746']]                                                                                                                                                                                                                                                                                          | searcher     | ('searcher', 'NN')   |
-|  9174 | spicify       | spicify    | VB    | ('spicify', 'spicify', 'VB')       |      1 | [['specify', ' 1', ' 19002536']]                                                                                                                                                                                                                                                                                         | specify      | ('specify', 'VB')    |
+|      |   answer_id | misspelling                       | sentence                                                                                      | final_correction_POS              |
+|-----:|------------:|:----------------------------------|:----------------------------------------------------------------------------------------------|:----------------------------------|
+| 4584 |       11487 | ('celemony', 'celemony', 'NN')    | Third, the ANON_NAME_0-Ju international movie celemony is opened in my hometown.              | ('ceremony', 'ceremony', 'NN')    |
+|  5278 |       13444 | ('miliion', 'miliion', 'NN') | 200 miliion people                                                                       | ('million', 'million', 'NN') |
+|  6714 |       17707 | ('korian', 'korian', 'JJ')   | Korian pizza is healthier than American pizza.                                           | ('korean', 'korean', 'JJ')   |
+| 15133 |       35162 | ('grammer', 'grammer', 'NN') | Although my grammer was not impeccable, they could usually understand what I meant.      | ('grammar', 'grammar', 'NN') |
+|  4290 |       10839 | ('comunity', 'comunity', 'NN')   | Second, truth make our comunity be truthable sociaty.                                                | ('community', 'community', 'NN') |
 
-- _Incorporating corrections into `pelic_df`_ : Finally, these corrected tokens are incorporated back into `pelic_df`, creating a new `tok_POS` column for easy comparison to the original texts. Below is an example of an original and corrected text:
+- _Incorporating corrections into `pelic_df`_ : Finally, these corrected tokens are incorporated back into `pelic_df`, creating a new `tok_lem_POS` column for easy comparison to the original texts. Below is an example of an original and corrected text:
 
 ```python
 >>> print(pelic_df.loc[pelic_df.text.str.contains('becuase')].iloc[1,11]) #uncorrected
@@ -112,7 +117,7 @@ The notebook is divided into four main sections:
 [('My', 'PRP$'), ('friend', 'NN'), ('is', 'VBZ'), ('real', 'JJ'), ('nice', 'RB'), ('guy', 'NN'), ('.', '.'), ('I', 'PRP'), ('like', 'VBP'), ('hem', 'JJ'), ('because', 'NN'), ('he', 'PRP'), ('is', 'VBZ'), ('friendly', 'RB'), ('and', 'CC'), ('lovely', 'NN'), ('.', '.')]
 ```
 
-We can see here that many approrpriate corrections have been made, including _beccuase_ -> _because_ , _nise_ -> _nice_ , and _lovily_ -> _lovely_ . Importantly, incorrect spellings that are actual words, e.g. _hem_ (should be _him_ in this case) are not corrected. In addition, if the POS is incorrectly tagged, often due to the learner language, then the result may not be correct, e.g. _realy_ (marked as an adj) -> _real_ rather than _really_.  
+We can see here that many approrpriate corrections have been made, including _beccuase_ -> _because_ , _nise_ -> _nice_ , _friendlly_ -> _friendly_ , and _lovily_ -> _lovely_ . Importantly, incorrect spellings that are actual words, e.g. _hem_ (should be _him_ in this case) are not corrected. In addition, as limited context is considered, there will be some inaccuracies, e.g. _realy_ (real nice is a frequent bigram) -> _real_ rather than _really_.  
 
 Overall, the application of spelling correction is an important resource as it allows for more accurate tracking of what learners _may_ have been intending to write. For example, learners may know a word in every sense, except for its spelling. However, as with any automated text manipulation, the added layer of processing will allow for errors to enter the data, and as such, must be considered carefully when drawing conclusions from the data.
 
