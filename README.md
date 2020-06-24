@@ -30,22 +30,23 @@ There are two main components to the spelling correction process, presented in t
 <br>
 
 ## 2. Repository contents
-The [PELIC-spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling) repository contains eight main files:
+The [PELIC-spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling) repository contains 14 main files:
 
 File        | File type | Description  
 :---        | :--- | :---
-[contractions](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt) | txt | short list of contractions approved as legitimate tokens (not misspellings)
-[frequency_bigramdictionary_en_243_342](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_bigramdictionary_en_243_342.txt) | txt | bigram frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
-[frequency_dictionary_en_82_765](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_dictionary_en_82_765.txt) | txt | frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
-[hyphens](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) | txt | list of hyphenated words which appear in PELIC and have been approved as legitimate tokens (not misspellings)
-[PELIC_compiled_spellcorrected](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_compiled_spellcorrected.csv) | csv | final output of updated `PELIC_compiled.csv` with spelling correction
-[PELIC_spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling.ipynb) | ipynb | notebook demonstrating how spelling correction is applied to PELIC texts
-[PELIC-SCOWL](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC-SCOWL.txt) | txt | a combination of the [SCOWL_condensed](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt), [contractions](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt), and [hyphens](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) lists
-[README](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/README.md) | md | this file describing the repository
-[SCOWL_condensed](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt) | txt | final compiled word list based on SCOWL word lists
-[SCOWL_supp](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/actually_ok) | txt | short list of words manually approved as being legitimate words, e.g. proper names not found in SCOWL
-[SCOWL_wordlist](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.ipynb) | ipynb | notebook demonstrating how the SCOWL_condensed word list is created
-[SCOWL_wordlist](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.txt) | txt | the full SCOWL wordlist before condensing
+[all_names.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/all_names.txt) | text | list of over 90,000 names (first and last) from the 1990 US census data. Names collected by the [_names_](https://pypi.org/project/names/) random name generator project
+[contractions.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt) | text | short list of contractions approved as legitimate tokens (not misspellings)
+[frequency_bigramdictionary_en_243_342.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_bigramdictionary_en_243_342.txt) | text | bigram frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
+[frequency_dictionary_en_82_765.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/frequency_dictionary_en_82_765.txt) | text | frequency dictionary supplied by [SymSpell](https://github.com/wolfgarbe/SymSpell) spell correction module
+[hyphens.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) | text | list of hyphenated words which appear in PELIC and have been approved as legitimate tokens (not misspellings)
+[PELIC_compiled_spellcorrected.csv](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_compiled_spellcorrected.csv) | csv | final output of updated `PELIC_compiled.csv` with spelling correction
+[PELIC_spelling.ipynb](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling.ipynb) | Jupyter notebook | notebook demonstrating how spelling correction is applied to PELIC texts
+[PELIC-SCOWL.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC-SCOWL.txt) | text | a combination of the [SCOWL_condensed.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt), [contractions.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/contractions.txt), and [hyphens.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/hyphens.txt) lists
+[README.md](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/README.md) | markdown | this file describing the repository
+[SCOWL_condensed.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_condensed.txt) | text | final compiled word list based on SCOWL word lists
+[SCOWL_supp.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/actually_ok) | text | short list of words manually approved as being legitimate words, e.g. proper names not found in SCOWL
+[SCOWL_wordlist.ipynb](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.ipynb) | Jupyter notebook | notebook demonstrating how the SCOWL_condensed word list is created
+[SCOWL_wordlist.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.txt) | text | the full SCOWL wordlist before condensing
 
 <br>
 
@@ -99,13 +100,13 @@ The notebook is divided into four main sections:
 # Sample of 5 rows and key columns
 ```
 
-|      |   answer_id | misspelling                       | sentence                                                                                      | final_correction_POS              |
-|-----:|------------:|:----------------------------------|:----------------------------------------------------------------------------------------------|:----------------------------------|
-| 4584 |       11487 | ('celemony', 'celemony', 'NN')    | Third, the ANON_NAME_0-Ju international movie celemony is opened in my hometown.              | ('ceremony', 'ceremony', 'NN')    |
-|  5278 |       13444 | ('miliion', 'miliion', 'NN') | 200 miliion people                                                                       | ('million', 'million', 'NN') |
-|  6714 |       17707 | ('korian', 'korian', 'JJ')   | Korian pizza is healthier than American pizza.                                           | ('korean', 'korean', 'JJ')   |
-| 15133 |       35162 | ('grammer', 'grammer', 'NN') | Although my grammer was not impeccable, they could usually understand what I meant.      | ('grammar', 'grammar', 'NN') |
-|  4290 |       10839 | ('comunity', 'comunity', 'NN')   | Second, truth make our comunity be truthable sociaty.                                                | ('community', 'community', 'NN') |
+|answer_id | misspelling                       | sentence                                                                                      | final_correction_POS              |
+|------------:|:----------------------------------|:----------------------------------------------------------------------------------------------|:----------------------------------|
+|       11487 | ('celemony', 'celemony', 'NN')    | Third, the ANON_NAME_0-Ju international movie celemony is opened in my hometown.              | ('ceremony', 'ceremony', 'NN')    |
+|       13444 | ('miliion', 'miliion', 'NN') | 200 miliion people                                                                       | ('million', 'million', 'NN') |
+|       17707 | ('korian', 'korian', 'JJ')   | Korian pizza is healthier than American pizza.                                           | ('korean', 'korean', 'JJ')   |
+|       35162 | ('grammer', 'grammer', 'NN') | Although my grammer was not impeccable, they could usually understand what I meant.      | ('grammar', 'grammar', 'NN') |
+|       10839 | ('comunity', 'comunity', 'NN')   | Second, truth make our comunity be truthable sociaty.                                                | ('community', 'community', 'NN') |
 
 - _Incorporating corrections into `pelic_df`_ : Finally, these corrected tokens are incorporated back into `pelic_df`, creating a new `tok_lem_POS` column for easy comparison to the original texts. Below is an example of an original and corrected text:
 
