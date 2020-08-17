@@ -1,7 +1,7 @@
 # PELIC_spelling
 
 **Version 1.0  
-Authors: Ben Naismith, John Starr, Eva Bacas
+Authors: Ben Naismith, John Starr, Eva Bacas  
 Contact: bnaismith@pitt.edu**
 
 This repo provides information and code about applying spelling correction to the PELIC dataset.
