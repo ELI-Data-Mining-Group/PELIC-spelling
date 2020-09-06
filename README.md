@@ -1,4 +1,4 @@
-# PELIC_spelling
+# PELIC-spelling
 
 **Version 1.0  
 Authors: Ben Naismith, John Starr, Eva Bacas  
@@ -140,4 +140,4 @@ Permission to use, copy, modify, distribute and sell these word lists, the assoc
 
 <br>
 
-[Back to top](#pelic_spelling)
+[Back to top](#pelic-spelling)
