@@ -13,12 +13,12 @@ This repo provides information and code about applying spelling correction to th
 2. [Repository contents](#2-Repository-contents)
 3. [SCOWL wordlist](#3-SCOWL-wordlist)
 4. [PELIC spelling](#4-PELIC-spelling)
-5. [Licenses](#6-Licenses)
+5. [Licenses](#5-Licenses)
 
 <br>
 
 ## 1. Overview
-This README.md file introduces the PELIC-spelling repository which provides information and code about applying spelling correction to the PELIC dataset. To download and find out more about the PELIC dataset, see the [PELIC-dataset](https://github.com/ELI-Data-Mining-Group/PELIC-dataset) repository. For information regarding publications and presentations based on PELIC data, as well as for information regarding the people and parties responsible for the corpus, please visit the [Pitt ELI Corpus](https://github.com/ELI-Data-Mining-Group/Pitt-ELI-Corpus) repository.
+This `README.md` file introduces the PELIC-spelling repository which provides information and code about applying spelling correction to the PELIC dataset. To download and find out more about the PELIC dataset, see the [PELIC-dataset](https://github.com/ELI-Data-Mining-Group/PELIC-dataset) repository. For information regarding publications and presentations based on PELIC data, as well as for information regarding the people and parties responsible for the corpus, please visit the [Pitt ELI Corpus](https://eli-data-mining-group.github.io/Pitt-ELI-Corpus) web page.
 
 Spelling correction is an important element to consider in any corpus study involving learner data. The decision whether to correct texts or not will invariably impact results: in some instances it may be preferable to use the raw text, maintaining its integrity and avoiding an additional layer of processing. However, for other projects, corrected text may provide a more accurate representation of the language features being investigated.
 
@@ -127,7 +127,7 @@ Overall, the application of spelling correction is an important resource as it a
 ## 5. Licenses
 
 **PELIC license:**
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">PELIC dataset</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/ELI-Data-Mining-Group/PELIC_dataset" property="cc:attributionName" rel="cc:attributionURL">Alan Juffs, Na-Rae Han, Ben Naismith</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/ELI-Data-Mining-Group/PELIC_dataset" rel="dct:source">https://github.com/ELI-Data-Mining-Group/PELIC_dataset</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">PELIC dataset</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" property="cc:attributionName" rel="cc:attributionURL">Alan Juffs, Na-Rae Han, Ben Naismith</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" rel="dct:source">https://github.com/ELI-Data-Mining-Group/PELIC-dataset</a>.
 
 **SCOWL license:**
 [SCOWL Copyright and License Agreement](https://www.maplesoft.com/support/help/Maple/view.aspx?path=License/SCOWL)
@@ -140,4 +140,4 @@ Permission to use, copy, modify, distribute and sell these word lists, the assoc
 
 <br>
 
-[Back to top](#PELIC-spelling)
+[Back to top](#pelic_spelling)
