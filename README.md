@@ -22,10 +22,11 @@ This `README.md` file introduces the PELIC-spelling repository which provides in
 
 Spelling correction is an important element to consider in any corpus study involving learner data. The decision whether to correct texts or not will invariably impact results: in some instances it may be preferable to use the raw text, maintaining its integrity and avoiding an additional layer of processing. However, for other projects, corrected text may provide a more accurate representation of the language features being investigated.
 
-There are two main components to the spelling correction process, presented in two Jupyter notebooks:
+There are three main components to the spelling correction process, presented in two Jupyter notebooks:
 
 1. The [SCOWL_wordlist](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.ipynb): In this notebook we decide on a list of what we consider to be real words, using an edited version of the [SCOWL wordlists](http://wordlist.aspell.net/).
 2. [PELIC_spelling](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling.ipynb): In this notebook we create a dataframe of misspellings, apply an automated spelling correction process, and re-incorporate the corrected text into our corpus.
+3. [PELIC_spelling_validation](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling_validation.ipynb): In this notebook we detail a validation of the spell checker. Manual checking of spelling is performed on a sample of PELIC and is then compared to the output of the automated spell checker. The results indicate that spell-checker is highly accurate in terms of the total tokens in PELIC, but conservative resulting in lower precision. For details, please see the Jupyter notebook.
 
 <br>
 
@@ -47,6 +48,7 @@ File        | File type | Description
 [SCOWL_supp.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/actually_ok) | text | short list of words manually approved as being legitimate words, e.g. proper names not found in SCOWL
 [SCOWL_wordlist.ipynb](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.ipynb) | Jupyter notebook | notebook demonstrating how the SCOWL_condensed word list is created
 [SCOWL_wordlist.txt](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/SCOWL_wordlist.txt) | text | the full SCOWL wordlist before condensing
+[PELIC_spelling_validation.ipynb](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/PELIC_spelling_validation.ipynb) | Jupyter notebook | manual validation of the spell checker
 
 <br>
 
